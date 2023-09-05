@@ -50,11 +50,11 @@ To set up the Hours Registration Bot for your Discord server, follow these steps
 
 4. Install the required Python packages using `pip`:
 
-pip install -r requirements.txt
+`pip install -r requirements.txt`
 
 5. Run the bot script:
 
-python bot_script.py
+`python bot_script.py`
 
 6. Invite the bot to your Discord server and grant it necessary permissions.
 
