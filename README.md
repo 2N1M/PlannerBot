@@ -1,8 +1,8 @@
-# PlannerBot
+# PlannerBot WIP
 ## Hours Registration Bot
 
 The Hours Registration Bot is a Discord bot designed to help users log their work hours and tasks for tracking and management. It integrates with Google Sheets to keep a record of users' daily activities.
-**STILL WIP**
+[Hours Registration Template](https://docs.google.com/spreadsheets/d/1UK_veVeC3QWL8_2fPv0StziR0YQZhGvGAtT7ThK9Y-0/edit?usp=sharing)
 
 ## Table of Contents
 
