@@ -10,6 +10,8 @@ The Hours Registration Bot is a Discord bot designed to help users log their wor
 - [Usage](#usage)
 - [Commands](#commands)
 - [Setup](#setup)
+- [Contributing](#contributing)
+- [License](#license)
 
 ## Features
 
@@ -59,3 +61,11 @@ To set up the Hours Registration Bot for your Discord server, follow these steps
 6. Invite the bot to your Discord server and grant it necessary permissions.
 
 7. Start using the bot with the available commands.
+
+## Contributing
+
+Contributions to this project are welcome! Feel free to open issues or submit pull requests to improve the bot's functionality or documentation.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
