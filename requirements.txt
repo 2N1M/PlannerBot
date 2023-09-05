@@ -1,0 +1,6 @@
+python-dotenv
+gspread
+oauth2client
+discord-py-interactions
+pytz
+schedule
