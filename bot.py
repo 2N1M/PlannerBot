@@ -27,39 +27,41 @@ credentials = ServiceAccountCredentials.from_json_keyfile_name(json_path, scopes
 gspread_client = gspread.authorize(credentials)
 
 async def send_reminders():
-    # Get the current date in the format "day/month/year"
-    now = datetime.datetime.now(pytz.timezone('Europe/Amsterdam'))
-    date_str = f'{now.day}/{now.month}/{now.year}'
-    
-    # Open the Google Sheets document
-    hours_registration_doc = gspread_client.open('HoursRegistration')\
-    
-    # Iterate through registered users
-    for user_sheet in hours_registration_doc.worksheets():
-        # Check if the user's sheet exists
-        if user_sheet.title != "TemplateSheet" and user_sheet.title != "Overview":
+    # Check if today is a Saturday (5) or Sunday (6)
+    if datetime.today().weekday() not in [5, 6]:
+        # Get the current date in the format "day/month/year"
+        now = datetime.datetime.now(pytz.timezone('Europe/Amsterdam'))
+        date_str = f'{now.day}/{now.month}/{now.year}'
+        
+        # Open the Google Sheets document
+        hours_registration_doc = gspread_client.open('HoursRegistration')\
+        
+        # Iterate through registered users
+        for user_sheet in hours_registration_doc.worksheets():
+            # Check if the user's sheet exists
+            if user_sheet.title != "TemplateSheet" and user_sheet.title != "Overview":
 
-            print(user_sheet.cell(3, 1).value)
+                print(user_sheet.cell(3, 1).value)
 
-            # Find the correct column for the date
-            date_range = user_sheet.row_values(2)
+                # Find the correct column for the date
+                date_range = user_sheet.row_values(2)
 
-            try:
-                col_idx = date_range.index(date_str) + 1
-            except ValueError:
-                await print("No matching column found for today's date.")
-                return
-                
-            # Check if the cell is empty
-            if user_sheet.cell(5, col_idx).value is None:
-                user_name = user_sheet.cell(3, 1).value
-                channel = bot.get_channel(1143957904215523389)
+                try:
+                    col_idx = date_range.index(date_str) + 1
+                except ValueError:
+                    await print("No matching column found for today's date.")
+                    return
+                    
+                # Check if the cell is empty
+                if user_sheet.cell(5, col_idx).value is None:
+                    user_name = user_sheet.cell(3, 1).value
+                    channel = bot.get_channel(1143957904215523389)
 
-                guild = bot.get_guild(1143957256145223740)
-                members = await guild.search_members(user_name)
-                if members:
-                    member = members[0]
-                    await channel.send(f"{member.mention} Don't forget to log your hours and tasks for today!")
+                    guild = bot.get_guild(1143957256145223740)
+                    members = await guild.search_members(user_name)
+                    if members:
+                        member = members[0]
+                        await channel.send(f"{member.mention} Don't forget to log your hours and tasks for today!")
 
 def run_send_reminders():
     # Schedule the send_reminders function to run in the event loop
@@ -73,7 +75,7 @@ async def on_ready():
     # Create an asyncio event loop
     loop = asyncio.get_event_loop()
 
-    # Schedule the send_reminders function to run every day at 7:13 PM
+    # Schedule the send_reminders function to run every day at 7:00 PM
     schedule.every().day.at("17:00").do(run_send_reminders)
     
     # Start the scheduler to send reminders
