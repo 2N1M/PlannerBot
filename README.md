@@ -41,7 +41,7 @@ To use the Hours Registration Bot, invite it to your Discord server and use the 
 - `/minutes <minutes> <task>`: Log minutes and a description of the finished task for today.
 - `/pbhelp`: Show available commands and usage instructions.
 
-## Setup
+## Setup _(INCOMPLETE)_
 
 To set up the Hours Registration Bot for your Discord server, follow these steps:
 
