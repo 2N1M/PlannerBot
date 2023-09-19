@@ -28,7 +28,7 @@ gspread_client = gspread.authorize(credentials)
 
 async def send_reminders():
     # Check if today is a Saturday (5) or Sunday (6)
-    if datetime.today().weekday() not in [5, 6]:
+    if datetime.datetime.today().weekday() not in [5, 6]:
         # Get the current date in the format "day/month/year"
         now = datetime.datetime.now(pytz.timezone('Europe/Amsterdam'))
         date_str = f'{now.day}/{now.month}/{now.year}'
