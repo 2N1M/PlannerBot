@@ -125,3 +125,4 @@ dmypy.json
 
 # Misc
 plannerbot-*.json
+server_configs.json
