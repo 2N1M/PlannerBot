@@ -1,4 +1,4 @@
-# PlannerBot WIP
+# PlannerBot WIP (Readme outdated)
 ![Screenshot of PlannerBot in action](https://cdn.discordapp.com/attachments/518107362272346118/1148420210177605742/image.png)
 ## Hours Registration Bot
 
